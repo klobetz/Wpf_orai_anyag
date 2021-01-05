@@ -8,18 +8,44 @@
         Title="03_DockPanel_WrapPanel" Height="450" Width="800">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/><!--A (Width="*") elosztom a gridet 50-50%-ban-->
+            <ColumnDefinition Width="*"/>
+            <!--A (Width="*") elosztom a gridet 50-50%-ban-->
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            
+            <WrapPanel>
+                <Button Content="Ez egy másik gomb" Padding="5"/>
+                <Button Content="Ez egy másik gomb" Padding="5"/>
+                <Button Content="Ez egy másik gomb" Padding="5"/>
+                <Button Content="Ez egy másik gomb" Padding="5"/>
+                <Button Content="Ez egy másik gomb" Padding="5"/>
+            </WrapPanel>
+            
+            <WrapPanel Grid.Row="1" Orientation="Vertical" HorizontalAlignment="Right">
+                <Button Content="2.gomb" Padding="5"/>
+                <Button Content="2.gomb" Padding="5"/>
+                <Button Content="2.gomb" Padding="5"/>
+                <Button Content="2.gomb" Padding="5"/>
+                <Button Content="2.gomb" Padding="5"/>
+            </WrapPanel>
 
-        <WrapPanel Grid.Column="1">
-            <Button Content="Ez egy másik gomb" Padding="5"/>
-            <Button Content="Ez egy másik gomb" Padding="5"/>
-            <Button Content="Ez egy másik gomb" Padding="5"/>
-            <Button Content="Ez egy másik gomb" Padding="5"/>
-            <Button Content="Ez egy másik gomb" Padding="5"/>            
-        </WrapPanel>
+            <WrapPanel Grid.Row="2">
+                <Button Content="2.gomb" Padding="5"/>
+                <Button Content="2.gomb" Padding="5"/>
+                <Button Content="2.gomb" Padding="5"/>
+                <Button Content="2.gomb" Padding="5"/>
+                <Button Content="2.gomb" Padding="5"/>
+            </WrapPanel>
+        </Grid>
+
+        
 
 
         <DockPanel LastChildFill="False">
