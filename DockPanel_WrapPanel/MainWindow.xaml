@@ -28,7 +28,7 @@
                 <Button Content="Ez egy másik gomb" Padding="5"/>
             </WrapPanel>
             
-            <WrapPanel Grid.Row="1" Orientation="Vertical" HorizontalAlignment="Right">
+            <WrapPanel Grid.Row="1" Orientation="Vertical" HorizontalAlignment="Center">
                 <Button Content="2.gomb" Padding="5"/>
                 <Button Content="2.gomb" Padding="5"/>
                 <Button Content="2.gomb" Padding="5"/>
