@@ -5,28 +5,55 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:grid_gombok"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Ez az első grafikus programom" Width="800" Height="450">
+    <!--HA A KÉPERNYŐN KIVÁLAZSTASZ EGY GOMBOT
+        AKKOR A KÓDBAN MEGMUTATJA A HEYÉT
+        ezután az F4-el tudom előhívni a tulajdonságokat-->
     <Grid>
+        <!--A grid méretezése:
+        
+        -Abszolút: amikor csak a szméretet adom meg
+        -Arányszám: (*)  az összes csikkag arányában
+        -Automatikus: -->
+
         <Grid.RowDefinitions>
-            <RowDefinition Height="116*"/>
-            <RowDefinition Height="151*"/>
-            <RowDefinition Height="152*"/>
+            <RowDefinition Height="115"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="110*"/>
-            <ColumnDefinition Width="151*"/>
-            <ColumnDefinition Width="135*"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="266*"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="341*"/>
         </Grid.ColumnDefinitions>
         
-        <!--a gombok pozícionálása mindi a 0. indexel kezdődik-->   
+        <!--A felhaználó álltal modsítható az oszlop mérete-->
+        <GridSplitter Grid.Column="2" 
+                      Width="5" 
+                      Grid.RowSpan="3" 
+                      ResizeBehavior="PreviousAndNext"/>
+
+        <!--a gombok pozícionálása mindi a 0. indexel kezdődik-->
         <Button Content="1.Gomb"/>
-        <Button Grid.Column="1" Content="2.Gomb valami" Padding="10" Margin="10,0" HorizontalAlignment="Center" VerticalAlignment="Top" />
-        <Button Grid.Column="2" Content="3.Gomb"/>
+        <Button Content="7.Gomb"
+                Grid.Column="1"
+                Grid.Row="1"/>
+        
+        <Button Grid.Column="1" Content="2.Gomb valami" Padding="10" Margin="140,0,25,0" HorizontalAlignment="Center" VerticalAlignment="Top" />
+        <Button Grid.Column="3" Content="3.Gomb"/>
         <!--A gomb méretét a Width="70" Height="30" -al tudom szbályozni viszont nem ez a játas út-->
-        <Button Grid.Column="0" Grid.Row="1" Content="4.Gomb valami szöveg" Width="70" Height="30"/> 
-        <Button Grid.Column="2" Grid.Row="1" Content="5.gomb"/>
+        <Button Grid.Column="0" Grid.Row="1" 
+                Content="4.Gomb valami szöveg" 
+                Width="70" Height="30"
+                HorizontalAlignment="Right" 
+                VerticalAlignment="Stretch" Margin="0,61"/>
+        <!--vizszinte és függöleges igazítás-->
+
+        <Button Grid.Column="3" Grid.Row="1" Content="5.gomb"/>
         <Button Grid.Column="0" Grid.Row="2" Content="6.Gomb"
-                Grid.ColumnSpan="2"/> <!--cella összevonása az adott gombtól meddig tartson -->
+                Grid.ColumnSpan="2"/>
+        <!--cella összevonása az adott gombtól meddig tartson -->
 
 
 
