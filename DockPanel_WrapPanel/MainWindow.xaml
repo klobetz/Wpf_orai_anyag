@@ -1,0 +1,38 @@
+﻿<Window x:Class="DockPanel_WrapPanel.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DockPanel_WrapPanel"
+        mc:Ignorable="d"
+        Title="03_DockPanel_WrapPanel" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/><!--A (Width="*") elosztom a gridet 50-50%-ban-->
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+
+        <WrapPanel Grid.Column="1">
+            <Button Content="Ez egy másik gomb" Padding="5"/>
+            <Button Content="Ez egy másik gomb" Padding="5"/>
+            <Button Content="Ez egy másik gomb" Padding="5"/>
+            <Button Content="Ez egy másik gomb" Padding="5"/>
+            <Button Content="Ez egy másik gomb" Padding="5"/>            
+        </WrapPanel>
+
+
+        <DockPanel LastChildFill="False">
+            <!--A LastChildFill="False" az utolsó gom már nem tölti ki a fenmaradó területet-->
+            <Button Content="Egy gomb (jobb)" DockPanel.Dock="Right"/>
+            <!--A DockPanel.Dock="Right" a gomb elhelyezkedését határozom meg-->
+            <Button Content="Egy gomb (lent)" DockPanel.Dock="Bottom"/>
+            <Button Content="Egy gomb (bal)" DockPanel.Dock="Left"/>
+            <Button Content="Egy gomb (fent)" DockPanel.Dock="Top"/>
+            <Button Content="Egy gomb (fent)" DockPanel.Dock="Top"/>
+            <Button Content="Egy gomb (fent)" DockPanel.Dock="Top"/>
+            <Button Content="Egy gomb (fent)" DockPanel.Dock="Top"/>
+            <Button Content="Egy gomb (fent)" DockPanel.Dock="Top"/>
+        </DockPanel>
+    </Grid>
+</Window>
