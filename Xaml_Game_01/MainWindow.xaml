@@ -52,17 +52,22 @@
 
             <!--A harmadik sorban elhelyezem a 3-om gombot-->
             
-            <Button Content="Igen" Grid.Row="2"                    
+            <Button x:Name="IgenGomb" 
+                    Content="Igen" Grid.Row="2"                    
                     Margin="5" Padding="10"
-                    HorizontalAlignment="Left"/>            
+                    HorizontalAlignment="Left" 
+                    Click="IgenGomb_Click"/>            
 
-            <Button Content="Nem" Grid.Row="2"
+            <Button x:Name="NemGomb" 
+                    Content="Nem" Grid.Row="2"
                     Margin="5" Padding="10"
-                    HorizontalAlignment="Center"/>
+                    HorizontalAlignment="Center" 
+                    Click="NemGomb_Click"/>
             
-            <Button Content="Indítás" Grid.Row="2"
+            <Button x:Name="InditasGomb" 
+                    Content="Indítás" Grid.Row="2"
                     Margin="5" Padding="10"
-                    HorizontalAlignment="Right"/>            
+                    HorizontalAlignment="Right" Click="InditasGomb_Click"/>            
 
         </Grid>
         

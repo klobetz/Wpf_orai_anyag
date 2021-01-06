@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,6 +24,21 @@ namespace Xaml_Game_01
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void IgenGomb_Click(object sender, RoutedEventArgs e)
+        {
+            Debug.WriteLine("Igen gomb");
+        }
+
+        private void NemGomb_Click(object sender, RoutedEventArgs e)
+        {
+            Debug.WriteLine("Nem gomb");
+        }
+
+        private void InditasGomb_Click(object sender, RoutedEventArgs e)
+        {
+            Debug.WriteLine("Indítás gomb");
         }
     }
 }
