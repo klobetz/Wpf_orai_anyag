@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02_StackPanel", "02_StackPa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03_DockPanel_WrapPanel", "DockPanel_WrapPanel\03_DockPanel_WrapPanel.csproj", "{5516B46A-DE6E-4934-9F96-88583065F172}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xaml_Game_01", "Xaml_Game_01\Xaml_Game_01.csproj", "{75DB555C-9220-4344-BB06-D18F916D6DA4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{5516B46A-DE6E-4934-9F96-88583065F172}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5516B46A-DE6E-4934-9F96-88583065F172}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5516B46A-DE6E-4934-9F96-88583065F172}.Release|Any CPU.Build.0 = Release|Any CPU
+		{75DB555C-9220-4344-BB06-D18F916D6DA4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{75DB555C-9220-4344-BB06-D18F916D6DA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{75DB555C-9220-4344-BB06-D18F916D6DA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{75DB555C-9220-4344-BB06-D18F916D6DA4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
