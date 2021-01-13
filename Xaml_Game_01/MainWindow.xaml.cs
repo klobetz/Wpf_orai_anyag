@@ -29,19 +29,53 @@ namespace Xaml_Game_01
         private void IgenGomb_Click(object sender, RoutedEventArgs e)
         {
             Debug.WriteLine("Igen gomb");
-            JobbKartya.Icon = FontAwesome.WPF.FontAwesomeIcon.Wifi;
+            //JobbKartya.Icon = FontAwesome.WPF.FontAwesomeIcon.Wifi;
+
+            UjKartyaHuzasa();
         }
+
+        
 
         private void NemGomb_Click(object sender, RoutedEventArgs e)
         {
             Debug.WriteLine("Nem gomb");
-            BalKartya.Icon = FontAwesome.WPF.FontAwesomeIcon.Ban;        
+            //BalKartya.Icon = FontAwesome.WPF.FontAwesomeIcon.Ban; 
+            UjKartyaHuzasa();
+
         }
 
         private void InditasGomb_Click(object sender, RoutedEventArgs e)
         {
             Debug.WriteLine("Indítás gomb");
+            UjKartyaHuzasa();
 
+        }
+
+
+
+        //függvények
+        private void UjKartyaHuzasa()
+        {
+            //létrehozom a listát mint kártyapakli
+            var kartyaPakli = new List<FontAwesome.WPF.FontAwesomeIcon>();
+
+            //feltöltöm a lista elemeit
+            kartyaPakli.Add(FontAwesome.WPF.FontAwesomeIcon.Flag);
+            kartyaPakli.Add(FontAwesome.WPF.FontAwesomeIcon.Wifi);
+            kartyaPakli.Add(FontAwesome.WPF.FontAwesomeIcon.Deaf);
+            kartyaPakli.Add(FontAwesome.WPF.FontAwesomeIcon.Twitter);
+            kartyaPakli.Add(FontAwesome.WPF.FontAwesomeIcon.Magic);
+            kartyaPakli.Add(FontAwesome.WPF.FontAwesomeIcon.Edit);
+
+            //Készítek egy véltlen szám generátort (dobókocka)
+            var dobokocka = new Random();
+            var dobas = dobokocka.Next(0, kartyaPakli.Count);
+
+            //ha ellenőrizni akarom az indexeket
+            //Debug.WriteLine(dobas);
+
+            //megadom hogy hol jelenjen meg
+            JobbKartya.Icon = kartyaPakli[dobas];
         }
     }
 }

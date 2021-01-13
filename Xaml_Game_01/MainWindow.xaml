@@ -42,10 +42,10 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
 
-                <fa:ImageAwesome Icon="None" x:Name="BalKartya"
+                <fa:ImageAwesome Icon="None" x:Name="JobbKartya"
                                  Grid.Column="1" Margin="20"/>
                 
-                <fa:ImageAwesome Icon="None" x:Name="JobbKartya"
+                <fa:ImageAwesome Icon="None" x:Name="BalKartya"
                                  Margin="100"
                                  />
 
