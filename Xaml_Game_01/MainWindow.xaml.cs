@@ -24,6 +24,15 @@ namespace Xaml_Game_01
         public MainWindow()
         {
             InitializeComponent();
+
+            //indítás gomb engedélyezése
+            InditasGomb.IsEnabled = true;
+            
+            //igen/nem gomb letiltása
+            IgenGomb.IsEnabled = false;
+            NemGomb.IsEnabled = false;
+
+            UjKartyaHuzasa();
         }
 
         private void IgenGomb_Click(object sender, RoutedEventArgs e)
@@ -47,6 +56,14 @@ namespace Xaml_Game_01
         private void InditasGomb_Click(object sender, RoutedEventArgs e)
         {
             Debug.WriteLine("Indítás gomb");
+            
+            //indítás gomb letiltása
+            InditasGomb.IsEnabled = false;
+
+            //igen/nem gomb engedélyezése
+            IgenGomb.IsEnabled = true;
+            NemGomb.IsEnabled = true;
+
             UjKartyaHuzasa();
 
         }
