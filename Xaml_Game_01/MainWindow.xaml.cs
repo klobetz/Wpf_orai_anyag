@@ -29,16 +29,19 @@ namespace Xaml_Game_01
         private void IgenGomb_Click(object sender, RoutedEventArgs e)
         {
             Debug.WriteLine("Igen gomb");
+            JobbKartya.Icon = FontAwesome.WPF.FontAwesomeIcon.Wifi;
         }
 
         private void NemGomb_Click(object sender, RoutedEventArgs e)
         {
             Debug.WriteLine("Nem gomb");
+            BalKartya.Icon = FontAwesome.WPF.FontAwesomeIcon.Ban;        
         }
 
         private void InditasGomb_Click(object sender, RoutedEventArgs e)
         {
             Debug.WriteLine("Indítás gomb");
+
         }
     }
 }

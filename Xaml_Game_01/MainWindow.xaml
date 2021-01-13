@@ -42,11 +42,12 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
 
-                <fa:ImageAwesome Icon="Google"
+                <fa:ImageAwesome Icon="None" x:Name="BalKartya"
                                  Grid.Column="1" Margin="20"/>
-                <fa:ImageAwesome Icon="Check" 
+                
+                <fa:ImageAwesome Icon="None" x:Name="JobbKartya"
                                  Margin="100"
-                                 Foreground="#FF5ADA1E"/>
+                                 />
 
             </Grid>
 
