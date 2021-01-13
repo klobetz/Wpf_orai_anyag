@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FontAwesome.WPF;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -21,6 +22,9 @@ namespace Xaml_Game_01
     /// </summary>
     public partial class MainWindow : Window
     {
+        //oszály szintű változó
+        public FontAwesomeIcon elozoKartya { get; private set; }
+
         public MainWindow()
         {
             InitializeComponent();
@@ -35,20 +39,42 @@ namespace Xaml_Game_01
             UjKartyaHuzasa();
         }
 
+
         private void IgenGomb_Click(object sender, RoutedEventArgs e)
         {
             Debug.WriteLine("Igen gomb");
             //JobbKartya.Icon = FontAwesome.WPF.FontAwesomeIcon.Wifi;
 
+            //jó és rossz válasz vizsgálata
+            if ( elozoKartya == JobbKartya.Icon)
+            {//jó válasz
+                JoValasz();
+            }
+            else
+            {//rossz válasz
+                RosszValasz();
+            }
+
             UjKartyaHuzasa();
         }
 
-        
 
         private void NemGomb_Click(object sender, RoutedEventArgs e)
         {
             Debug.WriteLine("Nem gomb");
             //BalKartya.Icon = FontAwesome.WPF.FontAwesomeIcon.Ban; 
+
+
+            //jó és rossz válasz vizsgálata
+            if (elozoKartya != JobbKartya.Icon)
+            {//jó válasz
+                JoValasz();
+            }
+            else
+            {//rossz válasz
+                RosszValasz();
+            }
+
             UjKartyaHuzasa();
 
         }
@@ -71,6 +97,17 @@ namespace Xaml_Game_01
 
 
         //függvények
+
+        private void JoValasz()
+        {
+            BalKartya.Icon = FontAwesomeIcon.Check;
+        }
+
+        private void RosszValasz()
+        {
+            BalKartya.Icon = FontAwesomeIcon.Times;
+        }
+
         private void UjKartyaHuzasa()
         {
             //létrehozom a listát mint kártyapakli
@@ -90,6 +127,12 @@ namespace Xaml_Game_01
 
             //ha ellenőrizni akarom az indexeket
             //Debug.WriteLine(dobas);
+
+
+            //osztály szintű változót kell létrehozni NEM A var (variable) segítségével
+            elozoKartya = JobbKartya.Icon;
+
+
 
             //megadom hogy hol jelenjen meg
             JobbKartya.Icon = kartyaPakli[dobas];
