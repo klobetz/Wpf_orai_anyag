@@ -29,7 +29,7 @@
                 <Label Content="Játékidő"/>
                 <Label Content="00:00"/>
                 <Label Content="Pontszám:"/>
-                <Label Content="00"/>
+                <Label x:Name="LabelPont" Content="00"/>
                 <Label Content="Reakció idő"/>
                 <Label Content="00"/>
                 <Label Content="Átlagos reakció idő"/>

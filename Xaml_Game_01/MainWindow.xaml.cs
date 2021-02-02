@@ -27,10 +27,13 @@ namespace Xaml_Game_01
         public FontAwesomeIcon elozoKartya { get; private set; }
         public List<FontAwesomeIcon> kartyaPakli { get; private set; }
         public Random dobokocka { get; private set; }
-        
+        public int pontszam { get; private set; }
+
         public MainWindow()
         {
-            InitializeComponent();           
+            InitializeComponent();
+            
+            pontszam = 0;
 
             //indítás gomb engedélyezése
             InditasGomb.IsEnabled = true;
@@ -135,14 +138,19 @@ namespace Xaml_Game_01
             BalKartya.Icon = FontAwesomeIcon.Check;
             BalKartya.Foreground = Brushes.Green;
             BalKartyaAnimacio();
-        }       
+
+            //pontszámítás kezdete
+            pontszam += 1; //létrehozok egy osztály szintű változót
+            LabelPont.Content = pontszam; //megoldom a kiíratást a képernyőre
+        }
 
         private void RosszValasz()
         {
             BalKartya.Icon = FontAwesomeIcon.Times;
             BalKartya.Foreground = Brushes.Red;
             BalKartyaAnimacio();
-        }
+
+        }      
 
         private void BalKartyaAnimacio()
         {
