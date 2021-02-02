@@ -70,7 +70,7 @@ namespace Xaml_Game_01
         {
             Debug.WriteLine("Nem gomb");
             //BalKartya.Icon = FontAwesome.WPF.FontAwesomeIcon.Ban; 
-            NeValasz();
+            NemValasz();
 
         }
 
@@ -103,7 +103,7 @@ namespace Xaml_Game_01
             UjKartyaHuzasa();
         }
 
-        private void NeValasz()
+        private void NemValasz()
         {
             //jó és rossz válasz vizsgálata
             if (elozoKartya != JobbKartya.Icon)
@@ -188,6 +188,22 @@ namespace Xaml_Game_01
         private void Window_KeyDown(object sender, KeyEventArgs e)
         {
             Debug.WriteLine(e.Key);
+
+            if (e.Key == Key.Up)
+            {
+                Inditas();
+            }
+
+            if (e.Key == Key.Left)
+            {
+                IgenValasz();
+            }
+
+            if (e.Key == Key.Right) 
+            {
+                NemValasz();
+            }
+
         }
     }
 }
