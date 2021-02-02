@@ -11,6 +11,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
@@ -133,17 +134,32 @@ namespace Xaml_Game_01
         {
             BalKartya.Icon = FontAwesomeIcon.Check;
             BalKartya.Foreground = Brushes.Green;
-        }
+            BalKartyaAnimacio();
+        }       
 
         private void RosszValasz()
         {
             BalKartya.Icon = FontAwesomeIcon.Times;
             BalKartya.Foreground = Brushes.Red;
+            BalKartyaAnimacio();
+        }
+
+        private void BalKartyaAnimacio()
+        {
+            //animáció: egy adott értéket megváltoztatok az dő függvényében
+            //feladat: a bal kártya opacity tul. megváltoztatása
+            //100% - 0% rövid idő alatt
+
+            //100% = 1-el
+            //0% = 0-val
+            //időt a c#-ban a TimeSpan
+
+            var animacio = new DoubleAnimation(1, 0, TimeSpan.FromMilliseconds(1200));
+            BalKartya.BeginAnimation(OpacityProperty, animacio);
         }
 
         private void UjKartyaHuzasa()
-        {
-            
+        {           
             var dobas = dobokocka.Next(0, kartyaPakli.Count);
 
             //ha ellenőrizni akarom az indexeket
