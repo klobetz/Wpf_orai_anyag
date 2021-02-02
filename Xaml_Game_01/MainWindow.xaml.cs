@@ -138,19 +138,33 @@ namespace Xaml_Game_01
             BalKartya.Icon = FontAwesomeIcon.Check;
             BalKartya.Foreground = Brushes.Green;
             BalKartyaAnimacio();
-
-            //pontszámítás kezdete
-            pontszam += 1; //létrehozok egy osztály szintű változót
-            LabelPont.Content = pontszam; //megoldom a kiíratást a képernyőre
-        }
+            Pontszamitas(true);
+        }       
 
         private void RosszValasz()
         {
             BalKartya.Icon = FontAwesomeIcon.Times;
             BalKartya.Foreground = Brushes.Red;
             BalKartyaAnimacio();
+            Pontszamitas(false);
+        }
 
-        }      
+        private void Pontszamitas(bool IgazHamisValasz)
+        {
+            //pontszámítás kezdete
+            //pontszam += 1; //létrehozok egy osztály szintű változót
+
+            if (IgazHamisValasz)
+            {
+                pontszam += 1;
+            }
+            else
+            {
+                pontszam -= 1;
+            }
+
+            LabelPont.Content = pontszam; //megoldom a kiíratást a képernyőre
+        }
 
         private void BalKartyaAnimacio()
         {
