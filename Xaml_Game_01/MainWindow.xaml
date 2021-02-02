@@ -35,19 +35,21 @@
                 <Label Content="00"/>
             </WrapPanel>
 
-            <!--A mésodik sor felosztom kér egyenlő részre-->
+            <!--A második sor felosztom kér egyenlő részre-->
             <Grid Grid.Row="1">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
 
-                <fa:ImageAwesome Icon="None" x:Name="JobbKartya"
-                                 Grid.Column="1" Margin="20"/>
-                
                 <fa:ImageAwesome Icon="None" x:Name="BalKartya"
                                  Margin="100"
                                  />
+                
+                <fa:ImageAwesome Icon="None" x:Name="JobbKartya"
+                                 Grid.Column="1" Margin="20"/>
+                
+                
 
             </Grid>
 
@@ -74,7 +76,13 @@
         
         <!--Az első sorba egy felsorolást hozok létre (ListBox)-->
         <ListBox Width="120">
-
+            <StackPanel>
+                <Label Content="Játékidő"/>
+                <Label Content="00:00"/>
+                <Label Content="Pontszám:"/>
+                <Label Content="00"/>
+                <Label Content="Reakció idő"/>
+            </StackPanel>
         </ListBox>
 
     </Grid>
