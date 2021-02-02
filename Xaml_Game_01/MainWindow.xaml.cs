@@ -165,14 +165,19 @@ namespace Xaml_Game_01
             //ha ellenőrizni akarom az indexeket
             //Debug.WriteLine(dobas);
 
-
             //osztály szintű változót kell létrehozni NEM A var (variable) segítségével
             elozoKartya = JobbKartya.Icon;
 
-
+            //jobb kárty eltűnik
+            var animacioEltunik = new DoubleAnimation(1, 0, TimeSpan.FromMilliseconds(200));
+            JobbKartya.BeginAnimation(OpacityProperty, animacioEltunik);
 
             //megadom hogy hol jelenjen meg
             JobbKartya.Icon = kartyaPakli[dobas];
+
+            //jobb kárty megjeleni
+            var animacioMegjelenik = new DoubleAnimation(0, 1, TimeSpan.FromMilliseconds(200));
+            JobbKartya.BeginAnimation(OpacityProperty, animacioMegjelenik);
         }
     }
 }
