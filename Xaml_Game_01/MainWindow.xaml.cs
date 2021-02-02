@@ -179,5 +179,15 @@ namespace Xaml_Game_01
             var animacioMegjelenik = new DoubleAnimation(0, 1, TimeSpan.FromMilliseconds(200));
             JobbKartya.BeginAnimation(OpacityProperty, animacioMegjelenik);
         }
+        /// <summary>
+        /// a leütés vizsgálatához sz xaml-ben létre kell hozni a KeyDown="Window_KeyDown"
+        /// </summary>
+        /// <param name="sender"> ez a paraméter mindig a .NET konverzióban az az obijektum ami az eseményt dobja
+        ///                         ebben az esetben megkapjuk az egész window-t</param>
+        /// <param name="e">ez a 2. paraméter ebben van a leütés </param>
+        private void Window_KeyDown(object sender, KeyEventArgs e)
+        {
+            Debug.WriteLine(e.Key);
+        }
     }
 }

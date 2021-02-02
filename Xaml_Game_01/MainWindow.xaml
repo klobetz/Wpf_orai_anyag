@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:Xaml_Game_01"        
         mc:Ignorable="d"
         xmlns:fa="http://schemas.fontawesome.io/icons/"
+        KeyDown="Window_KeyDown"
         
         Title="XamlGame01" Height="450" Width="800">
     <Grid>
