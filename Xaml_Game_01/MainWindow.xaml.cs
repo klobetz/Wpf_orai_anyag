@@ -27,10 +27,12 @@ namespace Xaml_Game_01
         public FontAwesomeIcon elozoKartya { get; private set; }
         public List<FontAwesomeIcon> kartyaPakli { get; private set; }
         public Random dobokocka { get; private set; }
+        public bool fut { get; private set; }
 
         public MainWindow()
         {
             InitializeComponent();
+            fut = false;
 
             //indítás gomb engedélyezése
             InditasGomb.IsEnabled = true;
@@ -189,17 +191,18 @@ namespace Xaml_Game_01
         {
             Debug.WriteLine(e.Key);
 
-            if (e.Key == Key.Up)
+            if (e.Key == Key.Up && fut==false)
             {
+                fut = true;
                 Inditas();
             }
 
-            if (e.Key == Key.Left)
+            if (e.Key == Key.Left && fut == true)
             {
                 IgenValasz();
             }
 
-            if (e.Key == Key.Right) 
+            if (e.Key == Key.Right && fut == true) 
             {
                 NemValasz();
             }
