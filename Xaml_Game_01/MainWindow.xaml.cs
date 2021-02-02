@@ -132,11 +132,13 @@ namespace Xaml_Game_01
         private void JoValasz()
         {
             BalKartya.Icon = FontAwesomeIcon.Check;
+            BalKartya.Foreground = Brushes.Green;
         }
 
         private void RosszValasz()
         {
             BalKartya.Icon = FontAwesomeIcon.Times;
+            BalKartya.Foreground = Brushes.Red;
         }
 
         private void UjKartyaHuzasa()
