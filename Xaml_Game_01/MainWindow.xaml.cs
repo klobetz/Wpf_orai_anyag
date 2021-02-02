@@ -24,6 +24,8 @@ namespace Xaml_Game_01
     {
         //oszály szintű változó
         public FontAwesomeIcon elozoKartya { get; private set; }
+        public List<FontAwesomeIcon> kartyaPakli { get; private set; }
+        public Random dobokocka { get; private set; }
 
         public MainWindow()
         {
@@ -36,6 +38,20 @@ namespace Xaml_Game_01
             IgenGomb.IsEnabled = false;
             NemGomb.IsEnabled = false;
 
+            //létrehozom a listát mint kártyapakli
+            kartyaPakli = new List<FontAwesomeIcon>();
+
+            //feltöltöm a lista elemeit
+            kartyaPakli.Add(FontAwesomeIcon.Flag);
+            kartyaPakli.Add(FontAwesomeIcon.Wifi);
+            kartyaPakli.Add(FontAwesomeIcon.Deaf);
+            kartyaPakli.Add(FontAwesomeIcon.Twitter);
+            kartyaPakli.Add(FontAwesomeIcon.Magic);
+            kartyaPakli.Add(FontAwesomeIcon.Edit);
+
+            //Készítek egy véltlen szám generátort (dobókocka)
+            dobokocka = new Random();
+
             UjKartyaHuzasa();
         }
 
@@ -44,9 +60,37 @@ namespace Xaml_Game_01
         {
             Debug.WriteLine("Igen gomb");
             //JobbKartya.Icon = FontAwesome.WPF.FontAwesomeIcon.Wifi;
+            IgenValasz();
+        }
 
+        
+
+        private void NemGomb_Click(object sender, RoutedEventArgs e)
+        {
+            Debug.WriteLine("Nem gomb");
+            //BalKartya.Icon = FontAwesome.WPF.FontAwesomeIcon.Ban; 
+            NeValasz();
+
+        }
+
+
+        private void InditasGomb_Click(object sender, RoutedEventArgs e)
+        {
+            Debug.WriteLine("Indítás gomb");
+            Inditas();
+
+        }
+
+        
+
+
+
+        //függvények
+
+        private void IgenValasz()
+        {
             //jó és rossz válasz vizsgálata
-            if ( elozoKartya == JobbKartya.Icon)
+            if (elozoKartya == JobbKartya.Icon)
             {//jó válasz
                 JoValasz();
             }
@@ -58,13 +102,8 @@ namespace Xaml_Game_01
             UjKartyaHuzasa();
         }
 
-
-        private void NemGomb_Click(object sender, RoutedEventArgs e)
+        private void NeValasz()
         {
-            Debug.WriteLine("Nem gomb");
-            //BalKartya.Icon = FontAwesome.WPF.FontAwesomeIcon.Ban; 
-
-
             //jó és rossz válasz vizsgálata
             if (elozoKartya != JobbKartya.Icon)
             {//jó válasz
@@ -76,13 +115,10 @@ namespace Xaml_Game_01
             }
 
             UjKartyaHuzasa();
-
         }
 
-        private void InditasGomb_Click(object sender, RoutedEventArgs e)
+        private void Inditas()
         {
-            Debug.WriteLine("Indítás gomb");
-            
             //indítás gomb letiltása
             InditasGomb.IsEnabled = false;
 
@@ -91,12 +127,7 @@ namespace Xaml_Game_01
             NemGomb.IsEnabled = true;
 
             UjKartyaHuzasa();
-
         }
-
-
-
-        //függvények
 
         private void JoValasz()
         {
@@ -110,19 +141,7 @@ namespace Xaml_Game_01
 
         private void UjKartyaHuzasa()
         {
-            //létrehozom a listát mint kártyapakli
-            var kartyaPakli = new List<FontAwesome.WPF.FontAwesomeIcon>();
-
-            //feltöltöm a lista elemeit
-            kartyaPakli.Add(FontAwesome.WPF.FontAwesomeIcon.Flag);
-            kartyaPakli.Add(FontAwesome.WPF.FontAwesomeIcon.Wifi);
-            kartyaPakli.Add(FontAwesome.WPF.FontAwesomeIcon.Deaf);
-            kartyaPakli.Add(FontAwesome.WPF.FontAwesomeIcon.Twitter);
-            kartyaPakli.Add(FontAwesome.WPF.FontAwesomeIcon.Magic);
-            kartyaPakli.Add(FontAwesome.WPF.FontAwesomeIcon.Edit);
-
-            //Készítek egy véltlen szám generátort (dobókocka)
-            var dobokocka = new Random();
+            
             var dobas = dobokocka.Next(0, kartyaPakli.Count);
 
             //ha ellenőrizni akarom az indexeket
