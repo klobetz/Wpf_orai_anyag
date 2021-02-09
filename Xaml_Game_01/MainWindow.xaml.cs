@@ -42,7 +42,6 @@ namespace Xaml_Game_01
 
             //létrehozom a listát mint kártyapakli
             kartyaPakli = new List<FontAwesomeIcon>();
-
             //feltöltöm a lista elemeit
             kartyaPakli.Add(FontAwesomeIcon.Flag);
             kartyaPakli.Add(FontAwesomeIcon.Wifi);
@@ -71,23 +70,7 @@ namespace Xaml_Game_01
             stopperora = new Stopwatch();
             /*********************************************************************************************/
 
-            //minden játék újra indításaok kell
-            pontszam = 0;
-
-            //jatékidő lenullázása
-            jatekido = TimeSpan.FromSeconds(0);
-
-            //indítás gomb engedélyezése
-            InditasGomb.IsEnabled = true;
-            
-            //igen/nem gomb letiltása
-            IgenGomb.IsEnabled = false;
-            NemGomb.IsEnabled = false;            
-
-            //lista készítése a reakció idő tárolására
-            listaRekcioIdohoz = new List<long>();
-
-            UjKartyaHuzasa();
+            JatekKezdoAllapota();
         }
 
         
@@ -116,12 +99,62 @@ namespace Xaml_Game_01
             Inditas();
 
         }
+        private void UjraInditasGomb_Click(object sender, RoutedEventArgs e)
+        {
+            Debug.WriteLine("Ujraindítás gomb");
+            JatekKezdoAllapota();
+        }
 
 
 
 
 
         //függvények
+
+        private void JatekKezdoAllapota()
+        {
+            //indítás gomb megjelenítése
+            InditasGomb.Visibility = Visibility.Visible;
+
+            //újraindítas gom eltüntetése
+            UjraInditasGomb.Visibility = Visibility.Hidden;
+
+            //minden játék újra indításaok kell
+            pontszam = 0;
+
+            //jatékidő lenullázása
+            jatekido = TimeSpan.FromSeconds(0);
+
+            //indítás gomb engedélyezése
+            InditasGomb.IsEnabled = true;
+
+            //igen/nem gomb letiltása
+            IgenGomb.IsEnabled = false;
+            NemGomb.IsEnabled = false;
+
+            //lista készítése a reakció idő tárolására
+            listaRekcioIdohoz = new List<long>();
+
+            UjKartyaHuzasa();
+        }
+        private void JatekVegeAllapot()
+        {
+            //ingaóra megállítsa
+            ingaora.Stop();
+
+            //igen/nem gomb letiltása
+            IgenGomb.IsEnabled = false;
+            NemGomb.IsEnabled = false;
+
+            //indítás gomb eltüntetése 
+            InditasGomb.Visibility = Visibility.Hidden;
+
+            //újraindítas gomb megjelenítése
+            UjraInditasGomb.Visibility = Visibility.Visible;
+
+        }
+
+
 
         /// <summary>
         /// itt tudjuk a játékidőt elkészíteni
@@ -133,7 +166,14 @@ namespace Xaml_Game_01
         {
             jatekido += TimeSpan.FromSeconds(1); //ebbe a változóba gyűjtjük a másodperceket
             LabelJatekido.Content = $"{jatekido.Minutes:00}:{jatekido.Seconds:00}"; //ez a kiíratás a programba
+
+            if (jatekido >= TimeSpan.FromSeconds(10))
+            {
+                JatekVegeAllapot();
+            }
         }
+
+       
 
         private void IgenValasz()
         {
@@ -292,5 +332,7 @@ namespace Xaml_Game_01
             }
 
         }
+
+        
     }
 }

@@ -71,7 +71,13 @@
             <Button x:Name="InditasGomb" 
                     Content="Indítás" Grid.Row="2"
                     Margin="5" Padding="10"
-                    HorizontalAlignment="Right" Click="InditasGomb_Click"/>            
+                    HorizontalAlignment="Right" Click="InditasGomb_Click"/>
+            
+            <Button x:Name="UjraInditasGomb" 
+                    Content="Újraindítás" Grid.Row="2"
+                    Margin="5" Padding="10"
+                    HorizontalAlignment="Right" Click="UjraInditasGomb_Click"/>
+
 
         </Grid>
         
