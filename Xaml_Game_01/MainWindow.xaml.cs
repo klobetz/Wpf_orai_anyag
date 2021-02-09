@@ -15,6 +15,7 @@ using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace Xaml_Game_01
 {
@@ -27,13 +28,18 @@ namespace Xaml_Game_01
         public FontAwesomeIcon elozoKartya { get; private set; }
         public List<FontAwesomeIcon> kartyaPakli { get; private set; }
         public Random dobokocka { get; private set; }
+        public DispatcherTimer ingaora { get; private set; }
         public int pontszam { get; private set; }
+        public TimeSpan jatekido { get; private set; }
 
         public MainWindow()
         {
             InitializeComponent();
             
             pontszam = 0;
+
+            //jatékidő lenullázása
+            jatekido = TimeSpan.FromSeconds(0);
 
             //indítás gomb engedélyezése
             InditasGomb.IsEnabled = true;
@@ -56,9 +62,23 @@ namespace Xaml_Game_01
             //Készítek egy véltlen szám generátort (dobókocka)
             dobokocka = new Random();
 
+            //ingaóra létrehozása: feladata a hosszú távú időmérés
+            //lesz eyg eseményem ami ilyenkor megtörténi és nekem erre fel kell tudnom íratkozni
+
+            ingaora = new DispatcherTimer           //új obijektum ot hozok létre
+                (TimeSpan.FromSeconds(1)            //az esemény másodpercenként
+                ,DispatcherPriority.Normal          //az üzenet szétszórása annak a naormál beállítása
+                ,Orautes                            //eseményvezérló amit az ingaóra meghív
+                ,Application.Current.Dispatcher     //mi az ami ezeket az eseményeket szétszórja beépített...
+                );
+
+            //az ingaóra megállítása mert különben egyből eindul a program indulásakor
+            ingaora.Stop();
+
             UjKartyaHuzasa();
         }
 
+        
 
         private void IgenGomb_Click(object sender, RoutedEventArgs e)
         {
@@ -85,11 +105,23 @@ namespace Xaml_Game_01
 
         }
 
-        
+
 
 
 
         //függvények
+
+        /// <summary>
+        /// itt tudjuk a játékidőt elkészíteni
+        /// ezt a függgvényt hívja az ingaóra másodpercenként
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Orautes(object sender, EventArgs e)
+        {
+            jatekido += TimeSpan.FromSeconds(1); //ebbe a változóba gyűjtjük a másodperceket
+            LabelJatekido.Content = $"{jatekido.Minutes:00}:{jatekido.Seconds:00}"; //ez a kiíratás a programba
+        }
 
         private void IgenValasz()
         {
@@ -129,6 +161,9 @@ namespace Xaml_Game_01
             //igen/nem gomb engedélyezése
             IgenGomb.IsEnabled = true;
             NemGomb.IsEnabled = true;
+
+            //ingaóra elindítása az indítás gobra
+            ingaora.Start();
 
             UjKartyaHuzasa();
         }
