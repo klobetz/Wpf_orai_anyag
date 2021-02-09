@@ -32,6 +32,7 @@ namespace Xaml_Game_01
         public int pontszam { get; private set; }
         public TimeSpan jatekido { get; private set; }
         public Stopwatch stopperora { get; }
+        public List<long> listaRekcioIdohoz { get; private set; }
 
         public MainWindow()
         {
@@ -78,6 +79,9 @@ namespace Xaml_Game_01
 
             //stopper létrehozása
             stopperora = new Stopwatch();
+
+            //lista készítése a reakció idő tárolására
+            listaRekcioIdohoz = new List<long>();
 
             UjKartyaHuzasa();
         }
@@ -205,9 +209,18 @@ namespace Xaml_Game_01
             }
 
             LabelPont.Content = pontszam; //megoldom a kiíratást a képernyőre
-            
-            //reakció idő kiíratása
-            LabelReacioIdo.Content = stopperora.ElapsedMilliseconds;
+
+            //Hozzáadom a listához a mért reakció időket
+            listaRekcioIdohoz.Add(stopperora.ElapsedMilliseconds);
+
+            //reakció idő kiíratása így ha nincs még listám
+            //LabelReacioIdo.Content = stopperora.ElapsedMilliseconds;
+
+            //reakció idő kiíratása így ha már van listám
+            LabelReacioIdo.Content = listaRekcioIdohoz.Last();
+
+            //átlagos reakció idő kiíratása:
+            LabelAtlagosReacioIdo.Content = (long)listaRekcioIdohoz.Average();
         }
 
         private void BalKartyaAnimacio()
