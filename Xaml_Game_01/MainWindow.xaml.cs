@@ -37,18 +37,8 @@ namespace Xaml_Game_01
         public MainWindow()
         {
             InitializeComponent();
-            
-            pontszam = 0;
 
-            //jatékidő lenullázása
-            jatekido = TimeSpan.FromSeconds(0);
-
-            //indítás gomb engedélyezése
-            InditasGomb.IsEnabled = true;
-            
-            //igen/nem gomb letiltása
-            IgenGomb.IsEnabled = false;
-            NemGomb.IsEnabled = false;
+            //csak az alkalmazás indításaokr kell lefutnia
 
             //létrehozom a listát mint kártyapakli
             kartyaPakli = new List<FontAwesomeIcon>();
@@ -69,9 +59,9 @@ namespace Xaml_Game_01
 
             ingaora = new DispatcherTimer           //új obijektum ot hozok létre
                 (TimeSpan.FromSeconds(1)            //az esemény másodpercenként
-                ,DispatcherPriority.Normal          //az üzenet szétszórása annak a naormál beállítása
-                ,Orautes                            //eseményvezérló amit az ingaóra meghív
-                ,Application.Current.Dispatcher     //mi az ami ezeket az eseményeket szétszórja beépített...
+                , DispatcherPriority.Normal          //az üzenet szétszórása annak a naormál beállítása
+                , Orautes                            //eseményvezérló amit az ingaóra meghív
+                , Application.Current.Dispatcher     //mi az ami ezeket az eseményeket szétszórja beépített...
                 );
 
             //az ingaóra megállítása mert különben egyből eindul a program indulásakor
@@ -79,6 +69,20 @@ namespace Xaml_Game_01
 
             //stopper létrehozása
             stopperora = new Stopwatch();
+            /*********************************************************************************************/
+
+            //minden játék újra indításaok kell
+            pontszam = 0;
+
+            //jatékidő lenullázása
+            jatekido = TimeSpan.FromSeconds(0);
+
+            //indítás gomb engedélyezése
+            InditasGomb.IsEnabled = true;
+            
+            //igen/nem gomb letiltása
+            IgenGomb.IsEnabled = false;
+            NemGomb.IsEnabled = false;            
 
             //lista készítése a reakció idő tárolására
             listaRekcioIdohoz = new List<long>();
