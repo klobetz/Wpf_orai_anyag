@@ -27,13 +27,13 @@
             és középre igazítom-->
             <WrapPanel Margin="5" HorizontalAlignment="Center">
                 <Label Content="Játékidő"/>
-                <Label x:Name="LabelJatekido" Content="00:00"/>
+                <Label x:Name="LabelJatekido" Content="00:00" Width="45"/>
                 <Label Content="Pontszám:"/>
-                <Label x:Name="LabelPont" Content="00"/>
+                <Label x:Name="LabelPont" Content="00" Width="50"/>
                 <Label Content="Reakció idő"/>
-                <Label Content="00"/>
+                <Label x:Name="LabelReacioIdo" Content="00" Width="60"/>
                 <Label Content="Átlagos reakció idő"/>
-                <Label Content="00"/>
+                <Label x:Name="LabelAtlagosReacioIdo" Content="00" Width="60"/>
             </WrapPanel>
 
             <!--A második sor felosztom kér egyenlő részre-->

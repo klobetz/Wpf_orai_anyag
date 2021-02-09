@@ -31,6 +31,7 @@ namespace Xaml_Game_01
         public DispatcherTimer ingaora { get; private set; }
         public int pontszam { get; private set; }
         public TimeSpan jatekido { get; private set; }
+        public Stopwatch stopperora { get; }
 
         public MainWindow()
         {
@@ -74,6 +75,9 @@ namespace Xaml_Game_01
 
             //az ingaóra megállítása mert különben egyből eindul a program indulásakor
             ingaora.Stop();
+
+            //stopper létrehozása
+            stopperora = new Stopwatch();
 
             UjKartyaHuzasa();
         }
@@ -165,6 +169,8 @@ namespace Xaml_Game_01
             //ingaóra elindítása az indítás gobra
             ingaora.Start();
 
+           
+
             UjKartyaHuzasa();
         }
 
@@ -199,6 +205,9 @@ namespace Xaml_Game_01
             }
 
             LabelPont.Content = pontszam; //megoldom a kiíratást a képernyőre
+            
+            //reakció idő kiíratása
+            LabelReacioIdo.Content = stopperora.ElapsedMilliseconds;
         }
 
         private void BalKartyaAnimacio()
@@ -235,6 +244,9 @@ namespace Xaml_Game_01
             //jobb kárty megjeleni
             var animacioMegjelenik = new DoubleAnimation(0, 1, TimeSpan.FromMilliseconds(200));
             JobbKartya.BeginAnimation(OpacityProperty, animacioMegjelenik);
+
+            //a stopper óra újraindítása
+            stopperora.Restart();
         }
 
         /// <summary>
