@@ -121,9 +121,11 @@ namespace Xaml_Game_01
 
             //minden játék újra indításaok kell
             pontszam = 0;
+            PontszamKiiras();
 
             //jatékidő lenullázása
             jatekido = TimeSpan.FromSeconds(0);
+            JatekIdoKiiras();
 
             //indítás gomb engedélyezése
             InditasGomb.IsEnabled = true;
@@ -134,9 +136,11 @@ namespace Xaml_Game_01
 
             //lista készítése a reakció idő tárolására
             listaRekcioIdohoz = new List<long>();
+            RekcioIdoKiiratasa(0,0);
 
             UjKartyaHuzasa();
         }
+
         private void JatekVegeAllapot()
         {
             //ingaóra megállítsa
@@ -165,7 +169,7 @@ namespace Xaml_Game_01
         private void Orautes(object sender, EventArgs e)
         {
             jatekido += TimeSpan.FromSeconds(1); //ebbe a változóba gyűjtjük a másodperceket
-            LabelJatekido.Content = $"{jatekido.Minutes:00}:{jatekido.Seconds:00}"; //ez a kiíratás a programba
+            JatekIdoKiiras();
 
             if (jatekido >= TimeSpan.FromSeconds(10))
             {
@@ -173,7 +177,11 @@ namespace Xaml_Game_01
             }
         }
 
-       
+        private void JatekIdoKiiras()
+        {
+            LabelJatekido.Content = $"{jatekido.Minutes:00}:{jatekido.Seconds:00}"; //ez a kiíratás a programba
+        }
+
 
         private void IgenValasz()
         {
@@ -252,7 +260,7 @@ namespace Xaml_Game_01
                 pontszam -= 1;
             }
 
-            LabelPont.Content = pontszam; //megoldom a kiíratást a képernyőre
+            PontszamKiiras();
 
             //Hozzáadom a listához a mért reakció időket
             listaRekcioIdohoz.Add(stopperora.ElapsedMilliseconds);
@@ -260,11 +268,21 @@ namespace Xaml_Game_01
             //reakció idő kiíratása így ha nincs még listám
             //LabelReacioIdo.Content = stopperora.ElapsedMilliseconds;
 
+            RekcioIdoKiiratasa(listaRekcioIdohoz.Last(), (long)listaRekcioIdohoz.Average());
+        }
+
+        private void RekcioIdoKiiratasa(long utolsoReakcioido, long utolsoAtlagosReakcioido)
+        {
             //reakció idő kiíratása így ha már van listám
-            LabelReacioIdo.Content = listaRekcioIdohoz.Last();
+            LabelReacioIdo.Content = utolsoReakcioido;
 
             //átlagos reakció idő kiíratása:
-            LabelAtlagosReacioIdo.Content = (long)listaRekcioIdohoz.Average();
+            LabelAtlagosReacioIdo.Content = utolsoAtlagosReakcioido;
+        }
+
+        private void PontszamKiiras()
+        {
+            LabelPont.Content = pontszam; //megoldom a kiíratást a képernyőre
         }
 
         private void BalKartyaAnimacio()
