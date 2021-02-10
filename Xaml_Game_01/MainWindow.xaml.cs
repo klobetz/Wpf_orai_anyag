@@ -136,7 +136,7 @@ namespace Xaml_Game_01
 
             //lista készítése a reakció idő tárolására
             listaRekcioIdohoz = new List<long>();
-            RekcioIdoKiiratasa(0,0);
+            ReakcioIdoKiiras(0,0);
 
             UjKartyaHuzasa();
         }
@@ -169,6 +169,8 @@ namespace Xaml_Game_01
         private void Orautes(object sender, EventArgs e)
         {
             jatekido += TimeSpan.FromSeconds(1); //ebbe a változóba gyűjtjük a másodperceket
+            
+            //a játékidő kiíratása függvénnyel
             JatekIdoKiiras();
 
             if (jatekido >= TimeSpan.FromSeconds(10))
@@ -176,12 +178,6 @@ namespace Xaml_Game_01
                 JatekVegeAllapot();
             }
         }
-
-        private void JatekIdoKiiras()
-        {
-            LabelJatekido.Content = $"{jatekido.Minutes:00}:{jatekido.Seconds:00}"; //ez a kiíratás a programba
-        }
-
 
         private void IgenValasz()
         {
@@ -260,6 +256,7 @@ namespace Xaml_Game_01
                 pontszam -= 1;
             }
 
+            //a pontszám kiíratása függvény segítségével
             PontszamKiiras();
 
             //Hozzáadom a listához a mért reakció időket
@@ -267,22 +264,28 @@ namespace Xaml_Game_01
 
             //reakció idő kiíratása így ha nincs még listám
             //LabelReacioIdo.Content = stopperora.ElapsedMilliseconds;
+            ReakcioIdoKiiras(listaRekcioIdohoz.Last(), (long)listaRekcioIdohoz.Average());
 
-            RekcioIdoKiiratasa(listaRekcioIdohoz.Last(), (long)listaRekcioIdohoz.Average());
         }
 
-        private void RekcioIdoKiiratasa(long utolsoReakcioido, long utolsoAtlagosReakcioido)
-        {
-            //reakció idő kiíratása így ha már van listám
-            LabelReacioIdo.Content = utolsoReakcioido;
 
-            //átlagos reakció idő kiíratása:
-            LabelAtlagosReacioIdo.Content = utolsoAtlagosReakcioido;
+
+        //Kiíratások a kéernyőre
+        private void ReakcioIdoKiiras(long reakcioido, long atlagosreakcioido)
+        {
+            LabelReacioIdo.Content = reakcioido;
+
+            LabelAtlagosReacioIdo.Content = atlagosreakcioido;
         }
 
         private void PontszamKiiras()
         {
             LabelPont.Content = pontszam; //megoldom a kiíratást a képernyőre
+        }
+
+        private void JatekIdoKiiras()
+        {
+            LabelJatekido.Content = $"{jatekido.Minutes:00}:{jatekido.Seconds:00}"; //ez a kiíratás a programba
         }
 
         private void BalKartyaAnimacio()
