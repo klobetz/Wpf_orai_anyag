@@ -29,9 +29,21 @@
                 </Button.Content>       
              </Button>
 
-            <Button Content="Második Gomb"
+            <Button 
                     Margin="5" Padding="5"
-                    FontSize="15" FontWeight="Bold"/>
+                    FontSize="15" FontWeight="Bold">
+                <Button.Content>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        
+                        <fa:FontAwesome Icon="ArrowLeft" Margin="0,3,5,0"/>
+                        <TextBlock Text="Második Gomb" Grid.Column="1"/>
+                    </Grid>                  
+                </Button.Content>               
+            </Button>
 
 
 
