@@ -32,7 +32,9 @@ namespace Xaml_Game_01
         public int pontszam { get; private set; }
         public TimeSpan jatekido { get; private set; }
         public Stopwatch stopperora { get; }
+        public DispatcherTimer aktualisido { get; private set; }
         public List<long> listaRekcioIdohoz { get; private set; }
+        public Action<object, EventArgs> pillIdo { get; private set; }
 
         public MainWindow()
         {
@@ -70,10 +72,18 @@ namespace Xaml_Game_01
             stopperora = new Stopwatch();
             /*********************************************************************************************/
 
+            //Az aktuális idő kiíratása
+            aktualisido = new DispatcherTimer(TimeSpan.FromSeconds(1), DispatcherPriority.Normal, Ido, Application.Current.Dispatcher);
+
             JatekKezdoAllapota();
         }
 
-        
+        private void Ido(object sender, EventArgs e)
+        {
+            pillIdo += Ido;
+            //kiíratoma megfelelő heyre a játékba
+            LabelPontosIdo.Content = DateTime.Now.ToLongTimeString();
+        }
 
         private void IgenGomb_Click(object sender, RoutedEventArgs e)
         {
