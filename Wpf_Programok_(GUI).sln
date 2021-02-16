@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03_DockPanel_WrapPanel", "D
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xaml_Game_01", "Xaml_Game_01\Xaml_Game_01.csproj", "{75DB555C-9220-4344-BB06-D18F916D6DA4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gombok_felosztasa_gyak", "Gombok_felosztasa_gyak\Gombok_felosztasa_gyak.csproj", "{509F13B5-17DE-4E0B-BBF2-02DE9BFC890D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{75DB555C-9220-4344-BB06-D18F916D6DA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{75DB555C-9220-4344-BB06-D18F916D6DA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{75DB555C-9220-4344-BB06-D18F916D6DA4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{509F13B5-17DE-4E0B-BBF2-02DE9BFC890D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{509F13B5-17DE-4E0B-BBF2-02DE9BFC890D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{509F13B5-17DE-4E0B-BBF2-02DE9BFC890D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{509F13B5-17DE-4E0B-BBF2-02DE9BFC890D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
