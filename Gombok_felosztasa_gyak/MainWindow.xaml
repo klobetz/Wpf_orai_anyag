@@ -7,6 +7,31 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel>
+            <Button Content="Első Gomb"
+                    Margin="5" Padding="5"
+                    FontSize="15" FontWeight="Bold"/>
+
+            <Button Content="Második Gomb"
+                    Margin="5" Padding="5"
+                    FontSize="15" FontWeight="Bold"/>
+            
+            <Button Content="Harmadik Gomb"
+                    Margin="5" Padding="5"
+                    FontSize="15" FontWeight="Bold"/>
+            
+            <Button Content="Negyedik Gomb"
+                    Margin="5" Padding="5"
+                    FontSize="15" FontWeight="Bold"/>
+
+
+
+        </StackPanel>
+
     </Grid>
 </Window>
