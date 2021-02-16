@@ -342,14 +342,19 @@ namespace Xaml_Game_01
                 Inditas();
             }
 
-            if (e.Key == Key.Left && InditasGomb.IsEnabled == false)
+            if (e.Key == Key.Left && InditasGomb.IsEnabled == false && InditasGomb.Visibility == Visibility)
             {
                 IgenValasz();
             }
 
-            if (e.Key == Key.Right && InditasGomb.IsEnabled == false) 
+            if (e.Key == Key.Right && InditasGomb.IsEnabled == false && InditasGomb.Visibility == Visibility) 
             {
                 NemValasz();
+            }
+
+            if (e.Key == Key.Space && InditasGomb.IsEnabled == false && IgenGomb.IsEnabled == false)
+            {
+                JatekKezdoAllapota();
             }
 
         }
