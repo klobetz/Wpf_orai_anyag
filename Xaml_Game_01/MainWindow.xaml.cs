@@ -123,8 +123,8 @@ namespace Xaml_Game_01
             pontszam = 0;
             PontszamKiiras();
 
-            //jatékidő lenullázása
-            jatekido = TimeSpan.FromSeconds(0);
+            //jatékidő lenullázása/3-ta állítom
+            jatekido = TimeSpan.FromSeconds(3);
             JatekIdoKiiras();
 
             //indítás gomb engedélyezése
@@ -168,12 +168,12 @@ namespace Xaml_Game_01
         /// <param name="e"></param>
         private void Orautes(object sender, EventArgs e)
         {
-            jatekido += TimeSpan.FromSeconds(1); //ebbe a változóba gyűjtjük a másodperceket
+            jatekido -= TimeSpan.FromSeconds(1); //ebbe a változóba gyűjtjük a másodperceket
             
             //a játékidő kiíratása függvénnyel
             JatekIdoKiiras();
 
-            if (jatekido >= TimeSpan.FromSeconds(10))
+            if (jatekido <= TimeSpan.FromSeconds(0))
             {
                 JatekVegeAllapot();
             }
