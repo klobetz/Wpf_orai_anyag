@@ -1,6 +1,7 @@
 ﻿using FontAwesome.WPF;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
@@ -35,6 +36,7 @@ namespace Xaml_Game_01
         public DispatcherTimer aktualisido { get; private set; }
         public List<long> listaRekcioIdohoz { get; private set; }
         public Action<object, EventArgs> pillIdo { get; private set; }
+        public List<int> listaTop5Eredmeny { get; private set; }
 
         public MainWindow()
         {
@@ -74,8 +76,12 @@ namespace Xaml_Game_01
 
             //Az aktuális idő kiíratása
             aktualisido = new DispatcherTimer(TimeSpan.FromSeconds(1), DispatcherPriority.Normal, Ido, Application.Current.Dispatcher);
-
+            aktualisido.Start();
+            
             JatekKezdoAllapota();
+
+            //lista készítése az eredmények eltárolására
+            listaTop5Eredmeny = new List<int>();
         }
 
         private void Ido(object sender, EventArgs e)
@@ -166,6 +172,19 @@ namespace Xaml_Game_01
             //újraindítas gomb megjelenítése
             UjraInditasGomb.Visibility = Visibility.Visible;
 
+            //Hozzáadom a listához a pontszámomat
+            listaTop5Eredmeny.Add(pontszam);
+
+            
+
+            //kiíratása a képernyőre
+            //Ez nem az igazi megoldás mert csak az első elemet jeleníti meg a listából ListBoxTop5.ItemsSource = listaTop5Eredmeny;
+
+            //Az ObservableCollection<int> szorosan össze va fűzve a ListBox-al szért szól neki, hogy frissitse a listát
+            //ListBoxTop5.ItemsSource = new ObservableCollection<int>(listaTop5Eredmeny);
+           
+            //A listámat csökkenő sorrendben íratom ki!
+            ListBoxTop5.ItemsSource = new ObservableCollection<int>(listaTop5Eredmeny.OrderByDescending(eredmény => eredmény));
         }
 
 
