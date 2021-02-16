@@ -4,7 +4,9 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Gombok_felosztasa_gyak"
+        xmlns:fa="http://schemas.fontawesome.io/icons/"
         mc:Ignorable="d"
+        
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <Grid.ColumnDefinitions>
@@ -13,14 +15,27 @@
         </Grid.ColumnDefinitions>
 
         <StackPanel>
-            <Button Content="Első Gomb"
+            <!--<Button /> ez az önlezáró teg
+            <Button> </Button> ez pedig a lezáró teg-->            
+            <Button 
                     Margin="5" Padding="5"
-                    FontSize="15" FontWeight="Bold"/>
+                    FontSize="15" FontWeight="Bold"
+                    >
+                <Button.Content>
+                    <StackPanel>                        
+                        <fa:FontAwesome Icon="ArrowRight"/>
+                        <TextBlock Text="Első Gomb"/>
+                    </StackPanel>
+                </Button.Content>       
+             </Button>
 
             <Button Content="Második Gomb"
                     Margin="5" Padding="5"
                     FontSize="15" FontWeight="Bold"/>
-            
+
+
+
+
             <Button Content="Harmadik Gomb"
                     Margin="5" Padding="5"
                     FontSize="15" FontWeight="Bold"/>
