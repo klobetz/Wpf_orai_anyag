@@ -175,7 +175,15 @@ namespace Xaml_Game_01
             //Hozzáadom a listához a pontszámomat
             listaTop5Eredmeny.Add(pontszam);
 
-            
+            //jelen állapot szerint több elem is belefér a listába ez javítjuk
+            if (listaTop5Eredmeny.Count>5)
+            {//a listát sorba rendezem és törlöm az első (0. azaz a legkisebb eredményt)
+                //sorba rendezem
+                listaTop5Eredmeny.Sort();
+                //itt meg törlöm
+                //listaTop5Eredmeny.Remove(listaTop5Eredmeny[0]); //ez is jó 
+                listaTop5Eredmeny.RemoveAt(0); //és ez is jó
+            }
 
             //kiíratása a képernyőre
             //Ez nem az igazi megoldás mert csak az első elemet jeleníti meg a listából ListBoxTop5.ItemsSource = listaTop5Eredmeny;
