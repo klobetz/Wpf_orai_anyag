@@ -342,12 +342,12 @@ namespace Xaml_Game_01
                 Inditas();
             }
 
-            if (e.Key == Key.Left && InditasGomb.IsEnabled == false && InditasGomb.Visibility == Visibility)
+            if (e.Key == Key.Left && InditasGomb.IsEnabled == false && InditasGomb.Visibility == Visibility.Visible)
             {
                 IgenValasz();
             }
 
-            if (e.Key == Key.Right && InditasGomb.IsEnabled == false && InditasGomb.Visibility == Visibility) 
+            if (e.Key == Key.Right && InditasGomb.IsEnabled == false && InditasGomb.Visibility == Visibility.Visible) 
             {
                 NemValasz();
             }
