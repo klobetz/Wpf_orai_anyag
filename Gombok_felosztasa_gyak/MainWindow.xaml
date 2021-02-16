@@ -44,20 +44,31 @@
                     </Grid>                  
                 </Button.Content>               
             </Button>
-
-
-
-
-            <Button Content="Harmadik Gomb"
-                    Margin="5" Padding="5"
-                    FontSize="15" FontWeight="Bold"/>
             
-            <Button Content="Negyedik Gomb"
+            <Button 
                     Margin="5" Padding="5"
-                    FontSize="15" FontWeight="Bold"/>
+                    FontSize="15" FontWeight="Bold"
+                >
+                <Button.Content>
+                    <WrapPanel>
+                        <TextBlock Text="Harmadik Gomb"/>
+                        <fa:FontAwesome Icon="ArrowUp" Margin="3"/>
+                    </WrapPanel>                    
+                </Button.Content>
+             </Button>
 
-
-
+            <Button 
+                    Margin="5" Padding="5"
+                    FontSize="15" FontWeight="Bold"
+                        >
+                <Button.Content>
+                    <DockPanel>
+                        <TextBlock Text="Negyedik Gomb"/>
+                        <fa:FontAwesome Icon="Undo" Margin="3"/>
+                    </DockPanel>                    
+                </Button.Content>
+            </Button>
+            
         </StackPanel>
 
     </Grid>
