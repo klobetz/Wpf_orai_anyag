@@ -86,18 +86,22 @@ namespace Xaml_Game_01
             listaTop5Eredmeny = new List<int>();
             toplistaFajlen = "Toplista.txt";
 
-            using (var fs = new FileStream(toplistaFajlen, FileMode.Open))
-            {
-                using (var sr = new StreamReader(fs, Encoding.UTF8))
+            //vizsgálom, hogy létezik-e a fájl
+            if (File.Exists(toplistaFajlen))
+            {//ha van fájl akkor beolvasom a listába ami fent létrejön, különben üres listával indul a program
+                using (var fs = new FileStream(toplistaFajlen, FileMode.Open))
                 {
-                    while (!sr.EndOfStream)
+                    using (var sr = new StreamReader(fs, Encoding.UTF8))
                     {
-                        var sor = sr.ReadLine();
-                        listaTop5Eredmeny.Add(Convert.ToInt32(sor));
+                        while (!sr.EndOfStream)
+                        {
+                            var sor = sr.ReadLine();
+                            listaTop5Eredmeny.Add(Convert.ToInt32(sor));
+                        }
                     }
                 }
             }
-
+            
             Top5ListaKiiratasa();
         }
 
@@ -412,22 +416,26 @@ namespace Xaml_Game_01
             if (e.Key == Key.Up && InditasGomb.IsEnabled == true)
             {
                 Inditas();
+                return;
             }
 
             if (e.Key == Key.Left && InditasGomb.IsEnabled == false && InditasGomb.Visibility == Visibility.Visible)
             {
                 IgenValasz();
+                return;
             }
 
             if (e.Key == Key.Right && InditasGomb.IsEnabled == false && InditasGomb.Visibility == Visibility.Visible) 
             {
                 NemValasz();
+                return;
             }
 
             if (e.Key == Key.Space && InditasGomb.IsEnabled == false && IgenGomb.IsEnabled == false)
             {
                 JatekKezdoAllapota();
-            }
+                return;
+            }           
 
         }
 
