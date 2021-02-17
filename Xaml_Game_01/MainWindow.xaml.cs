@@ -104,33 +104,24 @@ namespace Xaml_Game_01
             
             Top5ListaKiiratasa();
         }
-
-
         private void Ido(object sender, EventArgs e)
         {
             pillIdo += Ido;
             //kiíratoma megfelelő heyre a játékba
             LabelPontosIdo.Content = DateTime.Now.ToLongTimeString();
         }
-
         private void IgenGomb_Click(object sender, RoutedEventArgs e)
         {
             Debug.WriteLine("Igen gomb");
             //JobbKartya.Icon = FontAwesome.WPF.FontAwesomeIcon.Wifi;
             IgenValasz();
         }
-
-        
-
         private void NemGomb_Click(object sender, RoutedEventArgs e)
         {
             Debug.WriteLine("Nem gomb");
             //BalKartya.Icon = FontAwesome.WPF.FontAwesomeIcon.Ban; 
             NemValasz();
-
         }
-
-
         private void InditasGomb_Click(object sender, RoutedEventArgs e)
         {
             Debug.WriteLine("Indítás gomb");
@@ -142,10 +133,6 @@ namespace Xaml_Game_01
             Debug.WriteLine("Ujraindítás gomb");
             JatekKezdoAllapota();
         }
-
-
-
-
 
         //függvények
 
@@ -178,7 +165,6 @@ namespace Xaml_Game_01
 
             UjKartyaHuzasa();
         }
-
         private void JatekVegeAllapot()
         {
             //ingaóra megállítsa
@@ -221,7 +207,6 @@ namespace Xaml_Game_01
                 }
             }
         }
-
         private void Top5ListaKiiratasa()
         {
             //kiíratása a képernyőre
@@ -233,9 +218,6 @@ namespace Xaml_Game_01
             //A listámat csökkenő sorrendben íratom ki!
             ListBoxTop5.ItemsSource = new ObservableCollection<int>(listaTop5Eredmeny.OrderByDescending(eredmény => eredmény));
         }
-
-
-
         /// <summary>
         /// itt tudjuk a játékidőt elkészíteni
         /// ezt a függgvényt hívja az ingaóra másodpercenként
@@ -254,7 +236,6 @@ namespace Xaml_Game_01
                 JatekVegeAllapot();
             }
         }
-
         private void IgenValasz()
         {
             //jó és rossz válasz vizsgálata
@@ -269,7 +250,6 @@ namespace Xaml_Game_01
 
             UjKartyaHuzasa();
         }
-
         private void NemValasz()
         {
             //jó és rossz válasz vizsgálata
@@ -284,7 +264,6 @@ namespace Xaml_Game_01
 
             UjKartyaHuzasa();
         }
-
         private void Inditas()
         {
             //indítás gomb letiltása
@@ -295,9 +274,7 @@ namespace Xaml_Game_01
             NemGomb.IsEnabled = true;
 
             //ingaóra elindítása az indítás gobra
-            ingaora.Start();
-
-           
+            ingaora.Start();      
 
             UjKartyaHuzasa();
         }
@@ -308,8 +285,7 @@ namespace Xaml_Game_01
             BalKartya.Foreground = Brushes.Green;
             BalKartyaAnimacio();
             Pontszamitas(true);
-        }       
-
+        } 
         private void RosszValasz()
         {
             BalKartya.Icon = FontAwesomeIcon.Times;
@@ -317,7 +293,6 @@ namespace Xaml_Game_01
             BalKartyaAnimacio();
             Pontszamitas(false);
         }
-
         private void Pontszamitas(bool IgazHamisValasz)
         {
             //pontszámítás kezdete
@@ -343,9 +318,6 @@ namespace Xaml_Game_01
             ReakcioIdoKiiras(listaRekcioIdohoz.Last(), (long)listaRekcioIdohoz.Average());
 
         }
-
-
-
         //Kiíratások a kéernyőre
         private void ReakcioIdoKiiras(long reakcioido, long atlagosreakcioido)
         {
@@ -435,10 +407,7 @@ namespace Xaml_Game_01
             {
                 JatekKezdoAllapota();
                 return;
-            }           
-
-        }
-
-        
+            }  
+        }      
     }
 }
