@@ -85,7 +85,22 @@ namespace Xaml_Game_01
             //lista készítése az eredmények eltárolására
             listaTop5Eredmeny = new List<int>();
             toplistaFajlen = "Toplista.txt";
+
+            using (var fs = new FileStream(toplistaFajlen, FileMode.Open))
+            {
+                using (var sr = new StreamReader(fs, Encoding.UTF8))
+                {
+                    while (!sr.EndOfStream)
+                    {
+                        var sor = sr.ReadLine();
+                        listaTop5Eredmeny.Add(Convert.ToInt32(sor));
+                    }
+                }
+            }
+
+            Top5ListaKiiratasa();
         }
+
 
         private void Ido(object sender, EventArgs e)
         {
@@ -179,7 +194,7 @@ namespace Xaml_Game_01
             listaTop5Eredmeny.Add(pontszam);
 
             //jelen állapot szerint több elem is belefér a listába ez javítjuk
-            if (listaTop5Eredmeny.Count>5)
+            if (listaTop5Eredmeny.Count > 5)
             {//a listát sorba rendezem és törlöm az első (0. azaz a legkisebb eredményt)
                 //sorba rendezem
                 listaTop5Eredmeny.Sort();
@@ -188,14 +203,7 @@ namespace Xaml_Game_01
                 listaTop5Eredmeny.RemoveAt(0); //és ez is jó
             }
 
-            //kiíratása a képernyőre
-            //Ez nem az igazi megoldás mert csak az első elemet jeleníti meg a listából ListBoxTop5.ItemsSource = listaTop5Eredmeny;
-
-            //Az ObservableCollection<int> szorosan össze va fűzve a ListBox-al szért szól neki, hogy frissitse a listát
-            //ListBoxTop5.ItemsSource = new ObservableCollection<int>(listaTop5Eredmeny);
-           
-            //A listámat csökkenő sorrendben íratom ki!
-            ListBoxTop5.ItemsSource = new ObservableCollection<int>(listaTop5Eredmeny.OrderByDescending(eredmény => eredmény));
+            Top5ListaKiiratasa();
 
             //a lista tartalmának a kiíratása fájlba
             using (var fs = new FileStream(toplistaFajlen, FileMode.Create))
@@ -208,6 +216,18 @@ namespace Xaml_Game_01
                     }
                 }
             }
+        }
+
+        private void Top5ListaKiiratasa()
+        {
+            //kiíratása a képernyőre
+            //Ez nem az igazi megoldás mert csak az első elemet jeleníti meg a listából ListBoxTop5.ItemsSource = listaTop5Eredmeny;
+
+            //Az ObservableCollection<int> szorosan össze va fűzve a ListBox-al szért szól neki, hogy frissitse a listát
+            //ListBoxTop5.ItemsSource = new ObservableCollection<int>(listaTop5Eredmeny);
+
+            //A listámat csökkenő sorrendben íratom ki!
+            ListBoxTop5.ItemsSource = new ObservableCollection<int>(listaTop5Eredmeny.OrderByDescending(eredmény => eredmény));
         }
 
 
