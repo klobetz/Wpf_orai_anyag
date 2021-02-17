@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -37,6 +38,7 @@ namespace Xaml_Game_01
         public List<long> listaRekcioIdohoz { get; private set; }
         public Action<object, EventArgs> pillIdo { get; private set; }
         public List<int> listaTop5Eredmeny { get; private set; }
+        public string toplistaFajlen { get; private set; }
 
         public MainWindow()
         {
@@ -82,6 +84,7 @@ namespace Xaml_Game_01
 
             //lista készítése az eredmények eltárolására
             listaTop5Eredmeny = new List<int>();
+            toplistaFajlen = "Toplista.txt";
         }
 
         private void Ido(object sender, EventArgs e)
@@ -193,6 +196,18 @@ namespace Xaml_Game_01
            
             //A listámat csökkenő sorrendben íratom ki!
             ListBoxTop5.ItemsSource = new ObservableCollection<int>(listaTop5Eredmeny.OrderByDescending(eredmény => eredmény));
+
+            //a lista tartalmának a kiíratása fájlba
+            using (var fs = new FileStream(toplistaFajlen, FileMode.Create))
+            {
+                using (var sw = new StreamWriter(fs, Encoding.UTF8))
+                {
+                    foreach (var item in listaTop5Eredmeny)
+                    {
+                        sw.WriteLine(item);
+                    }
+                }
+            }
         }
 
 
