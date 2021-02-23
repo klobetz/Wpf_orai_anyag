@@ -32,6 +32,7 @@ namespace Menu_es__Ablakok
 
         private void ButtonAblak1_Click(object sender, RoutedEventArgs e)
         {
+            Tartalom.Content = new Ablak1_page();
 
         }
 

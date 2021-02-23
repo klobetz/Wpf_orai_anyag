@@ -5,8 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Menu_es__Ablakok"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="Menügombok" Height="450" Width="800" WindowState="Maximized">
+    
+    <Grid Background="DarkGray">
         <!--gombok létrehozása-->
         <WrapPanel>
             <Button x:Name="ButtonFooldal" Content="Főoldal" MinWidth="100" FontWeight="Bold" FontSize="15" Padding="5" Click="ButtonFooldal_Click"/>
@@ -17,6 +18,6 @@
         </WrapPanel>
         
         <!--tartalom megjelenítése-->
-        <Frame x:Name="Tartalom" Margin="0,35,0,0" />
+        <Frame x:Name="Tartalom" Margin="5,35,5,0" />
     </Grid>
 </Window>
