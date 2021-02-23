@@ -7,6 +7,16 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <!--gombok létrehozása-->
+        <WrapPanel>
+            <Button x:Name="ButtonFooldal" Content="Főoldal" MinWidth="100" FontWeight="Bold" FontSize="15" Padding="5" Click="ButtonFooldal_Click"/>
+            <Button x:Name="ButtonAblak1" Content="Ablak1" MinWidth="100" FontWeight="Bold" FontSize="15" Padding="5" Click="ButtonAblak1_Click"/>
+            <Button x:Name="ButtonAblak2" Content="Ablak2" MinWidth="100" FontWeight="Bold" FontSize="15" Padding="5" Click="ButtonAblak2_Click"/>
+            <Button x:Name="ButtonUjablak" Content="Új ablak" MinWidth="100" FontWeight="Bold" FontSize="15" Padding="5" Click="ButtonUjablak_Click"/>
+            <Button x:Name="ButtonTallozas" Content="Tallózás" MinWidth="100" FontWeight="Bold" FontSize="15" Padding="5" Click="ButtonTallozas_Click"/>            
+        </WrapPanel>
         
+        <!--tartalom megjelenítése-->
+        <Frame x:Name="Tartalom" Margin="0,35,0,0" />
     </Grid>
 </Window>

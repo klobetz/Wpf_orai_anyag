@@ -24,5 +24,30 @@ namespace Menu_es__Ablakok
         {
             InitializeComponent();
         }
+
+        private void ButtonFooldal_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ButtonAblak1_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ButtonAblak2_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ButtonUjablak_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ButtonTallozas_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
