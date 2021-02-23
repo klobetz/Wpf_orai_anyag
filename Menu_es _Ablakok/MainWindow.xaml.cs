@@ -1,6 +1,7 @@
 ﻿using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -51,18 +52,23 @@ namespace Menu_es__Ablakok
 
         private void ButtonTallozas_Click(object sender, RoutedEventArgs e)
         {
-            var fajlmegnyitas = new OpenFileDialog();
-            //var falkivalasztas = fajlmegnyitas.ShowDialog();
+            //if (Tartalom.Content is Fooldal_page)
+            //{
+            //    var fooldal = (Fooldal_page)Tartalom.Content;
+            //    fooldal.Fajlnyitas();
+            //}
+            //else
+            //{
+            //    MessageBox.Show("nem ott álsz! Menj a főoldalra");
+            //}
 
-            if (fajlmegnyitas.ShowDialog() == true)
-            {
-                //fájlbeolvasás
-            }
-            else
-            {
-                MessageBox.Show("Nincs kiválasztva fájl");
-            }
+            var tallozas = new Fooldal_page();
+            tallozas.Fajlnyitas();
+            Tartalom.Content = tallozas;
+            
         }
+
+        
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {

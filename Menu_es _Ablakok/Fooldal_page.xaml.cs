@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,6 +25,26 @@ namespace Menu_es__Ablakok
         public Fooldal_page()
         {
             InitializeComponent();
+        }
+        public void Fajlnyitas()
+        {
+            var fajlmegnyitas = new OpenFileDialog();
+            //var falkivalasztas = fajlmegnyitas.ShowDialog();
+
+            if (fajlmegnyitas.ShowDialog() == true)
+            {
+                using (var fs = new FileStream(fajlmegnyitas.FileName, FileMode.Open))
+                {
+                    using (var sr = new StreamReader(fs, Encoding.UTF8))
+                    {
+                        TextBoxMegjelenes.Text = sr.ReadToEnd();
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Nincs kiválasztva fájl");
+            }
         }
     }
 }
