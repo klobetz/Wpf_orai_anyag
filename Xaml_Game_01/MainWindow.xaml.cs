@@ -90,16 +90,22 @@ namespace Xaml_Game_01
             //vizsgálom, hogy létezik-e a fájl
             if (File.Exists(toplistaFajlen))
             {//ha van fájl akkor beolvasom a listába ami fent létrejön, különben üres listával indul a program
+                //using (var fs = new FileStream(toplistaFajlen, FileMode.Open))
+                //{
+                //    using (var sr = new StreamReader(fs, Encoding.UTF8))
+                //    {
+                //        while (!sr.EndOfStream)
+                //        {
+                //            var sor = sr.ReadLine();
+                //            listaTop5Eredmeny.Add(Convert.ToInt32(sor));
+                //        }
+                //    }
+                //}
+
                 using (var fs = new FileStream(toplistaFajlen, FileMode.Open))
                 {
-                    using (var sr = new StreamReader(fs, Encoding.UTF8))
-                    {
-                        while (!sr.EndOfStream)
-                        {
-                            var sor = sr.ReadLine();
-                            listaTop5Eredmeny.Add(Convert.ToInt32(sor));
-                        }
-                    }
+                    var xs = new XmlSerializer(typeof(List<int>));
+                    listaTop5Eredmeny =(List<int>) xs.Deserialize(fs);
                 }
             }
             
