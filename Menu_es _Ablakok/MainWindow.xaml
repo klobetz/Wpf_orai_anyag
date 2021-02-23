@@ -18,6 +18,6 @@
         </WrapPanel>
         
         <!--tartalom megjelenítése-->
-        <Frame x:Name="Tartalom" Margin="5,35,5,0" />
+        <Frame x:Name="Tartalom" Margin="5,35,5,0" NavigationUIVisibility="Hidden" />
     </Grid>
 </Window>
