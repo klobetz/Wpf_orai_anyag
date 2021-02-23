@@ -1,0 +1,28 @@
+﻿<Page x:Class="Menu_es__Ablakok.Fooldal_page"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Menu_es__Ablakok"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Fooldal_page">
+
+    <Grid Background="Coral">
+        
+        <StackPanel Margin="5,40,5,0" HorizontalAlignment="Center">
+
+            <TextBlock Text="Cím:" Margin="0,50,0,5" FontSize="18" FontWeight="Bold"/>
+            <TextBox MinWidth="200" Text="Szöveg 1" FontSize="14" Padding="2"/>
+
+            <TextBlock Text="E-mail cím" Margin="0,5,0,5" FontSize="18" FontWeight="Bold"/>
+            <TextBox MinWidth="200" Text="Szöveg 1" FontSize="14" Padding="2"/>
+
+            <TextBlock Text="Felhasználó név" Margin="0,5,0,5" FontSize="18" FontWeight="Bold"/>
+            <TextBox MinWidth="200" Text="Szöveg 1" FontSize="14" Padding="2"/>
+            
+        </StackPanel>
+
+
+    </Grid>
+</Page>

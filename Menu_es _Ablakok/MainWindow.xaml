@@ -5,7 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Menu_es__Ablakok"
         mc:Ignorable="d"
-        Title="Menügombok" Height="450" Width="800" WindowState="Maximized">
+        Title="Menügombok" Height="450" Width="800" 
+        WindowState="Maximized"
+        Loaded="Window_Loaded">
     
     <Grid Background="DarkGray">
         <!--gombok létrehozása-->
@@ -18,6 +20,20 @@
         </WrapPanel>
         
         <!--tartalom megjelenítése-->
-        <Frame x:Name="Tartalom" Margin="5,35,5,0" NavigationUIVisibility="Hidden" />
+        <Frame x:Name="Tartalom" Margin="5,35,5,0" NavigationUIVisibility="Hidden"/>
+
+        
+        <!--EZ NEM JÓ MEGOLDÁS, MERT CSOMÓ PROBLÉMÁT VET FEL-->
+        <!--<StackPanel Margin="5,40,5,0" HorizontalAlignment="Center">
+            
+            <TextBlock Text="Cím:" Margin="0,50,0,5" FontSize="18" FontWeight="Bold"/>
+            <TextBox MinWidth="200" Text="Szöveg 1" FontSize="14" Padding="2"/>
+
+            <TextBlock Text="E-mail cím" Margin="0,5,0,5" FontSize="18" FontWeight="Bold"/>
+            <TextBox MinWidth="200" Text="Szöveg 1" FontSize="14" Padding="2"/>
+
+            <TextBlock Text="Felhasználó név" Margin="0,5,0,5" FontSize="18" FontWeight="Bold"/>
+            <TextBox MinWidth="200" Text="Szöveg 1" FontSize="14" Padding="2"/>
+        </StackPanel>-->
     </Grid>
 </Window>

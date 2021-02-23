@@ -23,11 +23,12 @@ namespace Menu_es__Ablakok
         public MainWindow()
         {
             InitializeComponent();
+            
         }
 
         private void ButtonFooldal_Click(object sender, RoutedEventArgs e)
         {
-
+            Tartalom.Content = new Fooldal_page();
         }
 
         private void ButtonAblak1_Click(object sender, RoutedEventArgs e)
@@ -49,6 +50,11 @@ namespace Menu_es__Ablakok
         private void ButtonTallozas_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            Tartalom.Content = new Fooldal_page();
         }
     }
 }
