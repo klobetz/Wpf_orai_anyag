@@ -44,7 +44,8 @@ namespace Menu_es__Ablakok
 
         private void ButtonUjablak_Click(object sender, RoutedEventArgs e)
         {
-
+            var ujablak = new Ujablak_window();
+            ujablak.ShowDialog();
         }
 
         private void ButtonTallozas_Click(object sender, RoutedEventArgs e)
