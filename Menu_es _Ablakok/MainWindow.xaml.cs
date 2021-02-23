@@ -52,9 +52,9 @@ namespace Menu_es__Ablakok
         private void ButtonTallozas_Click(object sender, RoutedEventArgs e)
         {
             var fajlmegnyitas = new OpenFileDialog();
-            var falkivalasztas = fajlmegnyitas.ShowDialog();
+            //var falkivalasztas = fajlmegnyitas.ShowDialog();
 
-            if (falkivalasztas == true)
+            if (fajlmegnyitas.ShowDialog() == true)
             {
                 //fájlbeolvasás
             }
