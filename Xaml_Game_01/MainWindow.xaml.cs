@@ -18,6 +18,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
+using System.Xml.Serialization;
 
 namespace Xaml_Game_01
 {
@@ -196,15 +197,21 @@ namespace Xaml_Game_01
             Top5ListaKiiratasa();
 
             //a lista tartalmának a kiíratása fájlba
-            using (var fs = new FileStream(toplistaFajlen, FileMode.Create))
+            //using (var fs = new FileStream(toplistaFajlen, FileMode.Create))
+            //{
+            //    using (var sw = new StreamWriter(fs, Encoding.UTF8))
+            //    {
+            //        foreach (var item in listaTop5Eredmeny)
+            //        {
+            //            sw.WriteLine(item);
+            //        }
+            //    }
+            //}
+
+            using (var fs  = new FileStream(toplistaFajlen,FileMode.Create))
             {
-                using (var sw = new StreamWriter(fs, Encoding.UTF8))
-                {
-                    foreach (var item in listaTop5Eredmeny)
-                    {
-                        sw.WriteLine(item);
-                    }
-                }
+                var xs = new XmlSerializer(typeof(List<int>));
+                xs.Serialize(fs, listaTop5Eredmeny);
             }
         }
         private void Top5ListaKiiratasa()
