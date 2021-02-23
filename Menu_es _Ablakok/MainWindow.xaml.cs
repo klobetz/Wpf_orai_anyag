@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -50,7 +51,17 @@ namespace Menu_es__Ablakok
 
         private void ButtonTallozas_Click(object sender, RoutedEventArgs e)
         {
+            var fajlmegnyitas = new OpenFileDialog();
+            var falkivalasztas = fajlmegnyitas.ShowDialog();
 
+            if (falkivalasztas == true)
+            {
+                //fájlbeolvasás
+            }
+            else
+            {
+                MessageBox.Show("Nincs kiválasztva fájl");
+            }
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
