@@ -25,7 +25,8 @@ namespace Menu_es__Ablakok
         public MainWindow()
         {
             InitializeComponent();
-            
+            TallozasPipaBe(false);
+
         }
 
         private void ButtonFooldal_Click(object sender, RoutedEventArgs e)
@@ -74,5 +75,32 @@ namespace Menu_es__Ablakok
         {
             Tartalom.Content = new Fooldal_page();
         }
+
+        
+        private void TallozasAktiv_Checked(object sender, RoutedEventArgs e)
+        {
+            TallozasPipaBe(true);
+        }
+
+       
+
+        private void TallozasAktiv_Unchecked(object sender, RoutedEventArgs e)
+        {
+            TallozasPipaBe(false);
+        }
+
+        private void TallozasPipaBe(bool habevanpipalva)
+        {
+            if (habevanpipalva)
+            {
+                ButtonTallozas.IsEnabled = true;
+            }
+            else
+            {
+                ButtonTallozas.IsEnabled = false;
+            }
+            
+        }
+
     }
 }

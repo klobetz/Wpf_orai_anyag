@@ -17,7 +17,9 @@
             <Button x:Name="ButtonAblak1" Content="Ablak1" MinWidth="100" FontWeight="Bold" FontSize="15" Padding="5" Click="ButtonAblak1_Click"/>
             <Button x:Name="ButtonAblak2" Content="Ablak2" MinWidth="100" FontWeight="Bold" FontSize="15" Padding="5" Click="ButtonAblak2_Click"/>
             <Button x:Name="ButtonUjablak" Content="Új ablak" MinWidth="100" FontWeight="Bold" FontSize="15" Padding="5" Click="ButtonUjablak_Click"/>
-            <Button x:Name="ButtonTallozas" Content="Tallózás" MinWidth="100" FontWeight="Bold" FontSize="15" Padding="5" Click="ButtonTallozas_Click"/>            
+            <Button x:Name="ButtonTallozas" Content="Tallózás" MinWidth="100" FontWeight="Bold" FontSize="15" Padding="5" Click="ButtonTallozas_Click"/>
+            <CheckBox x:Name="TallozasAktiv"  Content="Ha tallózni akarsz akkor jelöld be!" Margin="5,0,0,0"
+                      Checked="TallozasAktiv_Checked" Unchecked="TallozasAktiv_Unchecked"/>
         </WrapPanel>
         
         <!--tartalom megjelenítése-->

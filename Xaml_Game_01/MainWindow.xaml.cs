@@ -60,6 +60,8 @@ namespace Xaml_Game_01
             //Készítek egy véltlen szám generátort (dobókocka)
             dobokocka = new Random();
 
+
+
             //ingaóra létrehozása: feladata a hosszú távú időmérés
             //lesz eyg eseményem ami ilyenkor megtörténi és nekem erre fel kell tudnom íratkozni
 
