@@ -26,6 +26,21 @@ namespace Menu_es__Ablakok
         {
             InitializeComponent();
         }
+       
+
+        private void TallozasGomb_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void MemtesGomb_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+      
+
+        //fájl beolvasás
         public void Fajlnyitas()
         {
             var fajlmegnyitas = new OpenFileDialog();

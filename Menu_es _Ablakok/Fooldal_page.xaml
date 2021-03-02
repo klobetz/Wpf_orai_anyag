@@ -9,12 +9,16 @@
       Title="Fooldal_page">
 
     <Grid Background="Coral">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="173*"/>
+            <RowDefinition Height="52*"/>
+        </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="auto"/>
             <ColumnDefinition Width="37*"/>
         </Grid.ColumnDefinitions>
 
-        <StackPanel Margin="5,0,5,0" HorizontalAlignment="Center" >
+        <StackPanel Margin="5,0,5,0" HorizontalAlignment="Center" Width="200">
 
             <TextBlock Text="Cím:" Margin="0,25,0,5" FontSize="18" FontWeight="Bold"/>
             <TextBox MinWidth="200" Text="Szöveg 1" FontSize="14" Padding="2"/>
@@ -26,8 +30,22 @@
             <TextBox MinWidth="200" Text="Szöveg 1" FontSize="14" Padding="2"/>
 
         </StackPanel>
-        
-        <TextBox x:Name="TextBoxMegjelenes" Grid.Column="1" Margin="5" Text="Kedés"/>
+
+        <StackPanel Grid.Row="1" Margin="10,0,0,10">
+
+            <Button x:Name="TallozasGomb" Content="Tallózás"
+                    MaxWidth="150" Padding="5" Margin="0,0,0,5"
+                    FontWeight="Bold" FontSize="15"
+                    Click="TallozasGomb_Click"/>
+
+            <Button x:Name="MemtesGomb" Content="Mentes"
+                    MaxWidth="150" Padding="5"
+                    FontWeight="Bold" FontSize="15"
+                    Click="MemtesGomb_Click"/>
+
+        </StackPanel>
+
+        <TextBox x:Name="TextBoxMegjelenes" Grid.Column="1" Margin="5" Text="Kedés" Grid.RowSpan="2"/>
 
 
     </Grid>
