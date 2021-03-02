@@ -25,25 +25,44 @@ namespace Menu_es__Ablakok
         public Fooldal_page()
         {
             InitializeComponent();
-        }
-       
+        }       
 
         private void TallozasGomb_Click(object sender, RoutedEventArgs e)
         {
-            
+            Fajlnyitas();
         }
 
         private void MemtesGomb_Click(object sender, RoutedEventArgs e)
         {
-            
+            FajlMentes();
         }
 
-      
+        //fájl kimentése
+        private void FajlMentes()
+        {
+            var fajlmentes = new SaveFileDialog() { Filter = "Text fájlok (.txt)|*.txt" };
+
+            if (fajlmentes.ShowDialog() == true)
+            {//mentés folyamata
+                using (var fs = new FileStream(fajlmentes.FileName,FileMode.Create))
+                {
+                    using (var sw = new StreamWriter(fs, Encoding.UTF8))
+                    {
+                        sw.WriteLine(TextBoxMegjelenes.Text);
+                    }
+                }
+            }
+            else
+            {//figyelmeztetés
+                MessageBox.Show("Nem lett mentve az állományt!");
+            }
+        }
+
 
         //fájl beolvasás
         public void Fajlnyitas()
         {
-            var fajlmegnyitas = new OpenFileDialog();
+            var fajlmegnyitas = new OpenFileDialog() { Filter = "Text fájlok (.txt)|*.txt" };
             //var falkivalasztas = fajlmegnyitas.ShowDialog();
 
             if (fajlmegnyitas.ShowDialog() == true)

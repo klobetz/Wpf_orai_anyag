@@ -45,7 +45,10 @@
 
         </StackPanel>
 
-        <TextBox x:Name="TextBoxMegjelenes" Grid.Column="1" Margin="5" Text="Kedés" Grid.RowSpan="2"/>
+        <TextBox x:Name="TextBoxMegjelenes" Grid.Column="1" Text="Kedés"
+                 Margin="5" Grid.RowSpan="2"
+                 TextWrapping="Wrap" AcceptsReturn="True"
+                 />
 
 
     </Grid>
